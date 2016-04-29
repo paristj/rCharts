@@ -160,7 +160,7 @@ hPlot <- highchartPlot <- function(..., radius = 3, title = NULL, subtitle = NUL
     if (!is.null(d$size)) data$size <- d$data[[d$size]]
     
     nrows <- nrow(data)
-    data <- na.omit(data)  # remove remaining observations with NA's
+   # data <- na.omit(data)  # Dont do this so it can handle missing data better - i.e., when you have missing values at start of time series, will not collapse the line to real values
     
     if (nrows != nrow(data)) warning("Observations with NA has been removed")
     
